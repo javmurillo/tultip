@@ -4,9 +4,9 @@ import "./Tooltip.scss";
 /**
  * @typedef {Object} Tooltip
  * @property {string} id Html tooltip identifier
- * @property {"top"|"right"|"bottom"|"left"} direction Position of the tooltip to be placed. Top by default
- * @property {number} margin Margin in pixels from the arrow to the content. 16px by default
+ * @property {"top"|"right"|"bottom"|"left"} position Position of the tooltip to be placed. Top by default
  * @property {number} arrowSize Arrow size in pixels. 8px by default
+ * @property {number} margin Margin in pixels from the arrow to the content. 16px by default
  * @property {JSX.Element} content Tooltip content
  * @property {JSX.Element} children Children components wrapped by this
  *
@@ -15,9 +15,9 @@ import "./Tooltip.scss";
  */
 const Tooltip = ({
   id,
-  direction = "top",
-  margin = 16,
+  position = "top",
   arrowSize = 8,
+  margin = 6,
   content,
   children,
 }) => {
@@ -25,6 +25,8 @@ const Tooltip = ({
   const styles = {
     BACKGROUND_COLOR: "#FFFFFF",
     BORDER_COLOR: "#123412",
+    ARROW_SIZE: `${arrowSize}px`,
+    MARGIN: `${margin + arrowSize - 1}px`,
   };
   /**
    * Toggles the Tooltip
@@ -46,13 +48,13 @@ const Tooltip = ({
         <div
           id={id}
           role="tooltip"
+          className={`tooltip ${position || "top"}`}
           style={{
             "--tooltip-background-color": styles.BACKGROUND_COLOR,
             "--tooltip-border-color": styles.BORDER_COLOR,
-            "--tooltip-arrow-size": `${arrowSize}px`,
-            "--tooltip-margin": `${margin}px`,
+            "--tooltip-arrow-size": styles.ARROW_SIZE,
+            "--tooltip-margin": styles.MARGIN,
           }}
-          className={`tooltip ${direction || "top"}`}
         >
           {content}
         </div>
