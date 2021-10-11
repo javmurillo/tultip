@@ -21,10 +21,10 @@ const Tooltip = ({
   content,
   children,
 }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const styles = {
     BACKGROUND_COLOR: "#FFFFFF",
-    BORDER_COLOR: "#123412",
+    BORDER_COLOR: "#121314",
     ARROW_SIZE: `${arrowSize}px`,
     MARGIN: `${margin + arrowSize - 1}px`,
   };
@@ -40,7 +40,7 @@ const Tooltip = ({
    * Hides the Tooltip
    */
   const hideTooltip = () => {
-    setShow(false);
+    setShow(true);
   };
 
   return (
