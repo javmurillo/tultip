@@ -5,7 +5,7 @@ function App() {
   const Content = ({ text }) => <span style={{ color: "orange" }}>{text}</span>;
   return (
     <div className="App">
-      <h2>Hello, this is a React tooltip demo</h2>
+      <h2>Hello, this is a React Tooltip demo</h2>
       <Tooltip content={<Content text="top" />} position="top">
         <button type="button">This is Top button</button>
       </Tooltip>
