@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Tooltip from "./Tooltip/Tooltip";
 
 function App() {
