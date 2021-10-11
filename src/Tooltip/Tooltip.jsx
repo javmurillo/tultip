@@ -28,20 +28,28 @@ const Tooltip = ({
     ARROW_SIZE: `${arrowSize}px`,
     MARGIN: `${margin + arrowSize - 1}px`,
   };
+
   /**
-   * Toggles the Tooltip
+   * Shows the Tooltip
    */
-  const toggleTooltip = () => {
-    setShow((prevShow) => !prevShow);
+  const showTooltip = () => {
+    setShow(true);
+  };
+
+  /**
+   * Hides the Tooltip
+   */
+  const hideTooltip = () => {
+    setShow(false);
   };
 
   return (
     <div
       className="tooltip-container"
-      onMouseEnter={toggleTooltip}
-      onMouseLeave={toggleTooltip}
-      onFocus={toggleTooltip}
-      onBlur={toggleTooltip}
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
+      onFocus={showTooltip}
+      onBlur={hideTooltip}
     >
       {children}
       {show && (
