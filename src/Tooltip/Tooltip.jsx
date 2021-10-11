@@ -21,7 +21,7 @@ const Tooltip = ({
   content,
   children,
 }) => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const styles = {
     BACKGROUND_COLOR: "#FFFFFF",
     BORDER_COLOR: "#121314",
@@ -40,7 +40,7 @@ const Tooltip = ({
    * Hides the Tooltip
    */
   const hideTooltip = () => {
-    setShow(true);
+    setShow(false);
   };
 
   return (
