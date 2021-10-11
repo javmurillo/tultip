@@ -56,7 +56,7 @@ const Tooltip = ({
         <div
           id={id}
           role="tooltip"
-          className={`tooltip ${position || "top"}`}
+          className={`tooltip ${position}`}
           style={{
             "--tooltip-background-color": styles.BACKGROUND_COLOR,
             "--tooltip-border-color": styles.BORDER_COLOR,
