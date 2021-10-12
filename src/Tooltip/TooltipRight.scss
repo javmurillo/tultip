@@ -1,0 +1,30 @@
+@import "./mixins";
+
+.tooltip.right {
+  left: calc(100% + var(--tooltip-margin));
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  animation: fadeInRight 0.15s ease-in-out;
+}
+
+.tooltip.right::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - var(--tooltip-arrow-size));
+  right: 100%;
+  border: var(--tooltip-arrow-size) solid transparent;
+  border-right-color: var(--tooltip-border-color);
+}
+
+.tooltip.right::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - var(--tooltip-arrow-size) + 1px);
+  right: 100%;
+  border: calc(var(--tooltip-arrow-size) - 1px) solid transparent;
+  border-right-color: white;
+}
+
+@include animation(fadeInRight, 10px, 0, -50%, -50%, 0, 0);

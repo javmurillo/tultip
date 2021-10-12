@@ -4,9 +4,9 @@ import "./Tooltip.scss";
 /**
  * @typedef {Object} Tooltip
  * @property {string} id Html tooltip identifier
- * @property {"top"|"right"|"bottom"|"left"} position Position of the tooltip to be placed. Top by default
+ * @property {"top"|"right"|"bottom"|"left"} position Position of the tooltip to be placed. Bottom by default
  * @property {number} arrowSize Arrow size in pixels. 8px by default
- * @property {number} margin Margin in pixels from the arrow to the content. 16px by default
+ * @property {number} margin Margin in pixels from the arrow to the content. 8px by default
  * @property {JSX.Element} content Tooltip content
  * @property {JSX.Element} children Children components wrapped by this
  *
@@ -15,12 +15,18 @@ import "./Tooltip.scss";
  */
 const Tooltip = ({
   id,
-  position = "top",
+  position = "bottom",
   arrowSize = 8,
-  margin = 6,
+  margin = 8,
   content,
   children,
 }) => {
+  const capitalizedPosition = `${position
+    .charAt(0)
+    .toUpperCase()}${position.slice(1)}`;
+
+  import(`./Tooltip${capitalizedPosition}.scss`);
+
   const [show, setShow] = useState(false);
   const styles = {
     BACKGROUND_COLOR: "#FFFFFF",

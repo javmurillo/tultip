@@ -1,0 +1,10 @@
+@mixin animation($name, $fromX, $toX, $fromY, $toY, $fromZ, $toZ) {
+  @keyframes #{$name} {
+    from {
+      transform: translate3d($fromX, $fromY, $fromZ);
+    }
+    to {
+      transform: translate3d($toX, $toY, $toZ);
+    }
+  }
+}
